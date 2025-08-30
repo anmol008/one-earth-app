@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  oneearth-flowgenix-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oneearth-flowgenix-ui:latest
+    container_name: oneearth-flowgenix-ui
+    ports:
+      - "9595:9595"
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  backend:
+    image: oneearth-flowgenix-ui:latest
+    container_name: oneearth-flowgenix-ui
+    ports:
+      - "9595:9595"
+    restart: unless-stopped
